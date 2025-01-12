@@ -23,33 +23,50 @@ cd PolicyAnalyzAI
 cd policy_scraper
 scrapy crawl policy_spider
 ```
+After scraping, the data goes through several automated processing steps handled by the Scrapy pipelines. This processing ensures that the scraped content is structured and ready for model training.
 
-**Cleaning and Tokenizing the Data:**
-After scraping, the HTML content is cleaned to remove unnecessary tags and formatting, and then tokenized into word and sentence tokens.
+**Processing Steps in Pipelines:**
+1. Saving Raw HTML
 
-The cleaned JSON files are saved in:
+The original scraped HTML is saved in data/raw/policies/.
+
+2. Cleaning the Data
+The HTML content is cleaned to remove unwanted tags, scripts, and formatting.
+The cleaned text is saved in JSON format in:
 ```bash
 data/processed/clean_json_files/
 ```
 
-**Tokenized data is stored in:**
-
+3. Tokenizing the Data:
+The cleaned text is tokenized into words and sentences for detailed analysis.
+Tokenized data is stored in:
 ```bash
 data/processed/tokenized_json_files/
 ```
-**Consolidating the Data:**
-Both the cleaned and tokenized files are consolidated into a single dataset for easy processing. The consolidated JSON is saved to:
 
+4. Indexing the Data
+The cleaned text is indexed using Whoosh to allow for fast content searches.
+Indexed data is stored in:
+```bash
+output/index/
+```
+
+5. Downloading and Saving Files (PDFs/Docs)
+Downloadable files (e.g., PDFs, Word Docs) linked in the policies are saved into:
+```bash
+PDFs: data/raw/pdfs/
+Other files: data/raw/files/
+```
+6. Data Consolidation
+Cleaned and tokenized data is merged into a single file for training.
+Consolidated file:
 ```bash
 data/processed/consolidated_data.json
 ```
 
-This step ensures that all the relevant content is ready for fine-tuning the language model.
-
 
 **Fine-Tuning the GPT-2 Model:**
 The cleaned and consolidated data is used to fine-tune a GPT-2 model using Hugging Face's Transformers library.
-
 Command to run fine-tuning:
 
 ```bash
@@ -66,8 +83,6 @@ models/fine_tuned_model/
 I created a script to test the model's performance by running prompts and evaluating the generated responses.
 
 Command to run testing:
-Command to run testing:
-
 ```bash
 python test_fine_tuned_model.py
 ```
