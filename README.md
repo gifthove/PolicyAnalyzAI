@@ -92,6 +92,24 @@ This script tests how well the model understands and summarizes policy content. 
 ```bash
 "Explain the privacy policy in simple terms."
 "Summarize the data protection policy."
+
+
+PS C:\Developmentpython test_fine_tuned_model.pyng>
+Loading fine-tuned model from ../models/fine_tuned_model...
+Testing Fine-Tuned Model...
+
+Prompt: Explain the privacy policy in simple terms:
+Response: Explain the privacy policy in simple terms: What is your personal information for? How do I use it? Where can I find out more about what you are sharing with us, and how we collect that data. Why should this matter to me? If a user has shared their details online (for example via email or text message), they may wish not to be 
+permitted access through our Services; however, if such an action was taken against them by another party who had reasonable grounds for believing there were other users of any particular website involved, then no liability will arise as long after these disclosures have been made – but even where those circumstances prevent some people 
+from accessing certain websites at once, actions which could reasonably be expected to result in significant harm cannot normally
+
+Prompt: What are the key principles of data protection?
+Response: What are the key principles of data protection? Learn more about how to protect yourself and your personal information Privacy Accessibility Clear search Open menu Close Menu Toggle submenu Are you looking for... Return To previous menu Have a question, answered topic AskOtago Future Students Subjects Fees and scholarships Key 
+dates Apply to Otago Academic Divisions Division Of Commerce Division OF Health Sciences Division About the university Residential colleges Otago University Press Library Jobs at Otahau Research DVC's welcome Our people at research and Enterprise OUSA Need help? Emergencies Human Resources Student health Our communities Current students 
+Staff Alumni Māori ki Ōtōkou Pacific at Otawa International students Campuses and maps Auckland Centre Christchurch Campus Dunedin Campus Wellington Campus Inver
+
+Prompt: Summarize the terms and conditions of use:
+Response: Summarize the terms and conditions of use: The University will not be able to identify a student who is an academic adviser for purposes other than as part-time students. Students should consult with their school representative or contact Student Accommodation Adviser before making any changes, including changing your accommodation arrangements at home (if applicable). To ensure that you are familiar with all relevant policies relating in particular areas, please refer back below for more information on specific policy documents covering these topics. Policy Documents Responsible Officers Information about how university administrators can assist individuals affected by this type/divisional decision under section 4(a) above; Policies concerning research misconduct In relation specifically – when dealing directly with complaints from staff regarding workplace behaviour involving members thereof– it may be helpful
 ```
 
 **Exploratory Data Analysis (EDA):**

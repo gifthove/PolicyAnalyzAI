@@ -2,7 +2,7 @@ import torch
 from transformers import GPT2Tokenizer, GPT2LMHeadModel
 
 # Load the fine-tuned model and tokenizer
-model_path = "policy_scraper/fine_tuning/fine_tuned_model"
+model_path = "../models/fine_tuned_model"
 print(f"Loading fine-tuned model from {model_path}...")
 tokenizer = GPT2Tokenizer.from_pretrained(model_path)
 model = GPT2LMHeadModel.from_pretrained(model_path)
