@@ -14,7 +14,7 @@ if tokenizer.pad_token is None:
 
 def test_model(prompt):
     """
-    Function to generate a response from the fine-tuned model for a given prompt.
+    Generate a response from the fine-tuned model for a given prompt.
     """
     inputs = tokenizer(
         prompt,
@@ -27,43 +27,49 @@ def test_model(prompt):
     outputs = model.generate(
         input_ids=inputs["input_ids"],
         attention_mask=inputs["attention_mask"],
-        max_length=150,  # Shorter max length
-        do_sample=True,  # Sampling for diversity
-        temperature=0.6,  # Adjusted temperature
-        top_p=0.9,  # Nucleus sampling
-        repetition_penalty=1.2,  # Penalize repetition
-        pad_token_id=tokenizer.pad_token_id,  # Ensure padding is handled
+        max_length=150,
+        do_sample=True,
+        temperature=0.6,
+        top_p=0.9,
+        repetition_penalty=1.2,
+        pad_token_id=tokenizer.pad_token_id,
     )
 
     response = tokenizer.decode(outputs[0], skip_special_tokens=True)
     return response
 
-def summarize_document(file_path):
+def evaluate_response(prompt, response):
     """
-    Reads a document and generates a summary or response for its content.
+    Evaluate the model's response for coherence, relevance, and ability to detect flaws.
     """
-    try:
-        with open(file_path, "r", encoding="utf-8") as file:
-            document_content = file.read()
-        print(f"\nGenerating response for document: {file_path}\n")
-        response = test_model(f"Summarize this document: {document_content}")
-        print(f"Response: {response}\n")
-    except Exception as e:
-        print(f"Error reading document: {e}")
+    # Assign example scores for evaluation
+    relevance_score = 8  # Example: Replace with evaluation after response review
+    coherence_score = 9  # Example: Replace with evaluation after response review
+    flaw_detection_score = 7  # Example: Replace with evaluation after response review
+    
+    print(f"Prompt: {prompt}")
+    print(f"Response: {response}\n")
+    print("Evaluation:")
+    print(f" - Relevance: [ ]")
+    print(f" - Coherence: [ ]")
+    print(f" - Flaw Detection Accuracy: [ ]\n")
 
-# Test the fine-tuned model with prompts
-print("Testing Fine-Tuned Model...\n")
-
-# Prompts for testing
-test_prompts = [
+# Testing prompts
+prompts = [
+    # Initial testing prompts
     "Explain the privacy policy in simple terms:",
     "What are the key principles of data protection?",
     "Summarize the terms and conditions of use:",
+    
+    # Specific prompts for policy flaw detection
+    "Analyze if this policy contains unnecessary cross-references or redundant content: The policy states that staff must comply with the law, and they must refer to the Code of Conduct for further guidance.",
+    "Does this policy contain procedural content? The policy specifies that all complaints should be directed to HR via email and follow a 3-step escalation process.",
+    "Identify inconsistencies in this policy: The Privacy Policy mentions compliance with GDPR but does not outline how consent is obtained for data processing. It also includes unrelated information about AI usage.",
+    "Is this policy structured correctly? The policy repeats the same information about grievance handling in two separate sections.",
 ]
 
-for prompt in test_prompts:
-    print(f"Prompt: {prompt}")
+# Run the model on each prompt
+print("Testing Fine-Tuned Model...\n")
+for prompt in prompts:
     response = test_model(prompt)
-    print(f"Response: {response}\n")
-
-
+    evaluate_response(prompt, response)
