@@ -15,8 +15,10 @@ PolicyAnalyzAI addresses one critical challenge: the management of large, consta
 ---
 
 ### **Step 1️⃣: Clone the Repository**
+```bash
 git clone https://github.com/gifthove/PolicyAnalyzAI.git
 cd PolicyAnalyzAI
+```
 
 
 ### **Step 2️⃣: Install Dependencies** 
