@@ -7,7 +7,7 @@ def run_policy_scraper():
     """Runs the Scrapy Policy Spider."""
     print("Starting policy scraper...")
     try:
-        subprocess.run(["scrapy", "crawl", "policy_spider"], check=True)
+        subprocess.run(["scrapy", "crawl", "policy_spider"], cwd="policy_scraper", check=True)
         print("✅ Policy scraping completed.")
     except Exception as e:
         print(f"❌ Error in policy scraping: {e}")
