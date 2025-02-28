@@ -13,88 +13,76 @@ PolicyAnalyzAI addresses one critical challenge: the management of large, consta
 - ✅ **Model Testing:** Validates the model on real-world prompts.  
 
 ---
-### Setting up and Running 
+
+### **Step 1️⃣: Clone the Repository**
 git clone https://github.com/gifthove/PolicyAnalyzAI.git
 cd PolicyAnalyzAI
 
 
-**Command to run the scraper:**
+### **Step 2️⃣: Install Dependencies** 
+Run the following command to install all required libraries:
 ```bash
-cd policy_scraper
-scrapy crawl policy_spider
+pip install -r requirements.txt
 ```
-After scraping, the data goes through several automated processing steps handled by the Scrapy pipelines. This processing ensures that the scraped content is structured and ready for model training.
-
-**Processing Steps in Pipelines:**
-1. Saving Raw HTML
-
-The original scraped HTML is saved in data/raw/policies/.
-
-2. Cleaning the Data
-The HTML content is cleaned to remove unwanted tags, scripts, and formatting.
-The cleaned text is saved in JSON format in:
+If you encounter a Rust & Cargo error, install Rust:
 ```bash
-data/processed/clean_json_files/
+winget install --id Rustlang.Rustup
 ```
+This will display an interactive menu for running different components of the system.
 
-3. Tokenizing the Data:
-The cleaned text is tokenized into words and sentences for detailed analysis.
-Tokenized data is stored in:
+🚀 Running PolicyAnalyzAI
+After installation, run main.py to start the console interface:
+
+If you encounter a Rust & Cargo error, install Rust:
 ```bash
-data/processed/tokenized_json_files/
+python main.py
 ```
 
-4. Indexing the Data
-The cleaned text is indexed using Whoosh to allow for fast content searches.
-Indexed data is stored in:
-```bash
-output/index/
-```
+🕵 How Each Step Works
+1️⃣ Web Scraping & Preprocessing
+✔ Extracts policy documents from the University of Otago’s website.
+✔ Cleans data, removing HTML tags and redundant text.
+✔ Tokenizes text for easier processing.
+✔ Indexes documents for fast searches.
 
-5. Downloading and Saving Files (PDFs/Docs)
-Downloadable files (e.g., PDFs, Word Docs) linked in the policies are saved into:
-```bash
-PDFs: data/raw/pdfs/
-Other files: data/raw/files/
-```
-6. Data Consolidation
-Cleaned and tokenized data is merged into a single file for training.
-Consolidated file:
-```bash
-data/processed/consolidated_data.json
-```
+📂 Files generated:
 
+data/raw/ → Stores original policy HTML files.
+data/processed/ → Saves cleaned and tokenized policy data
 
-**Fine-Tuning the GPT-2 Model:**
-The cleaned and consolidated data is used to fine-tune a GPT-2 model using Hugging Face's Transformers library.
-Command to run fine-tuning:
+Run via console (main.py → Option 1)
+2️⃣ Fine-Tuning the GPT-2 Model
+✔ Trains GPT-2 on institutional policy language.
+✔ Optimizes summarization and flaw detection.
 
-```bash
-cd fine_tuning
-python llm_fine_tuning.py
-```
-The fine-tuned model is saved to:
+💾 Output Model Location:
 
-```bash
 models/fine_tuned_model/
-```
-
-**Testing the Fine-Tuned Model:**
-I created a script to test the model's performance by running prompts and evaluating the generated responses.
-
-Command to run testing:
-```bash
-python test_fine_tuned_model.py
-```
+⏯ Run via console (main.py → Option 2)
 
 This script tests how well the model understands and summarizes policy content. Example prompts include:
+
+
+3️⃣ Model Testing: Evaluating Policy Analysis Accuracy
+✔ Tests model-generated summaries for relevance and clarity.
+✔ Evaluates flaw detection accuracy in policies.
+✔ Uses cosine similarity & scoring metrics to validate responses.
+
+📌 Example Evaluation Metrics:
+
+Prompt	Relevance (out of 10)	Coherence (out of 10)	Flaw Detection Accuracy (out of 10)	Readability Score
+Explain the privacy policy in simple terms	5.6	5.03	6.46	55.17
+Summarize the terms and conditions of use	2.06	5.23	5.26	29.79
+
+Export to Sheets
+⏯ Run via console (main.py → Option 3) 
 
 ```bash
 "Explain the privacy policy in simple terms."
 "Summarize the data protection policy."
 
 
-PS C:\Developmentpython test_fine_tuned_model.pyng>
+PS C:\Developmentpython test_fine_tuned_model.pyng
 Loading fine-tuned model from ../models/fine_tuned_model...
 Testing Fine-Tuned Model...
 
