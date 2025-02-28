@@ -32,9 +32,9 @@ winget install --id Rustlang.Rustup
 ```
 This will display an interactive menu for running different components of the system.
 
-🚀 Running PolicyAnalyzAI
+### **🚀 Running PolicyAnalyzAI**
 After installation, run main.py to start the console interface:
-
+### 
 If you encounter a Rust & Cargo error, install Rust:
 ```bash
 python main.py
