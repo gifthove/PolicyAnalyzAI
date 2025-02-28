@@ -81,7 +81,7 @@ Explain the privacy policy in simple terms	5.6	5.03	6.46	55.17
 Summarize the terms and conditions of use	2.06	5.23	5.26	29.79
 
 Export to Sheets
-⏯ Run via console (main.py → Option 3) 
+**⏯ Run via console (main.py → Option 3)** 
 
 ```bash
 "Explain the privacy policy in simple terms."
