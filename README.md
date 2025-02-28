@@ -40,7 +40,7 @@ If you encounter a Rust & Cargo error, install Rust:
 python main.py
 ```
 
-🕵 How Each Step Works
+### **🕵 How Each Step Works**
 1️⃣ Web Scraping & Preprocessing
 ✔ Extracts policy documents from the University of Otago’s website.
 ✔ Cleans data, removing HTML tags and redundant text.
