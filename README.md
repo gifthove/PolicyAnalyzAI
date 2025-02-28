@@ -3,12 +3,13 @@ PolicyAnalyzAI addresses one critical challenge: the management of large, consta
 
 ## 📖 Project Overview
 
-**PolicyAnalyzAI** is an intelligent data pipeline that scrapes, processes, and analyzes university policy documents. The project uses a fine-tuned **GPT-2** language model to identify inconsistencies and provide summaries of policies in alignment with the **University of Otago’s Policy Framework**.
+**PolicyAnalyzAI** is an intelligent data pipeline that scrapes, processes, and analyzes university policy documents. The project uses a fine-tuned **GPT-2** language model to identify inconsistencies and provide summaries of policies in alignment with the **University of Otago’s Policy Framework**. 
+By leveraging **Large Language Models (LLMs)** like **GPT-2**, along with **Exploratory Data Analysis (EDA)**, this system enhances **policy accessibility**, identifies **redundancies**, and **detects structural inconsistencies**.
 
 ### Key Features:
 - 🕸️ **Web Scraping:** Automates the extraction of policy documents.  
 - 🧹 **Data Preprocessing:** Cleans and tokenizes raw text for model training.  
-- 🤖 **Model Fine-Tuning:** Customizes GPT-2 on institutional policies.  
+- 🤖 **Model Fine-Tuning:** Customizes GPT-2 on institutional policies. Trains AI for policy document analysis.   
 - 📊 **Exploratory Data Analysis (EDA):** Visualizes key insights from data.  
 - ✅ **Model Testing:** Validates the model on real-world prompts.  
 
@@ -47,30 +48,33 @@ python main.py
 - ✔ Tokenizes text for easier processing.
 - ✔ Indexes documents for fast searches.
 
-📂 Files generated:
-
+**📂 Files generated:**
+```bash
 data/raw/ → Stores original policy HTML files.
 data/processed/ → Saves cleaned and tokenized policy data
-
+``` 
 Run via console (main.py → Option 1)
-2️⃣ Fine-Tuning the GPT-2 Model
-✔ Trains GPT-2 on institutional policy language.
-✔ Optimizes summarization and flaw detection.
 
-💾 Output Model Location:
+### 2️⃣ Fine-Tuning the GPT-2 Model
+- ✔ Trains GPT-2 on institutional policy language.
+- ✔ Optimizes summarization and flaw detection.
 
+**💾 Output Model Location:**
+
+```bash
 models/fine_tuned_model/
+``` 
 ⏯ Run via console (main.py → Option 2)
 
 This script tests how well the model understands and summarizes policy content. Example prompts include:
 
 
-3️⃣ Model Testing: Evaluating Policy Analysis Accuracy
-✔ Tests model-generated summaries for relevance and clarity.
-✔ Evaluates flaw detection accuracy in policies.
-✔ Uses cosine similarity & scoring metrics to validate responses.
+### 3️⃣ Model Testing: Evaluating Policy Analysis Accuracy
+- ✔ Tests model-generated summaries for relevance and clarity.
+- ✔ Evaluates flaw detection accuracy in policies.
+- ✔ Uses cosine similarity & scoring metrics to validate responses.
 
-📌 Example Evaluation Metrics:
+**📌 Example Evaluation Metrics:**
 
 Prompt	Relevance (out of 10)	Coherence (out of 10)	Flaw Detection Accuracy (out of 10)	Readability Score
 Explain the privacy policy in simple terms	5.6	5.03	6.46	55.17
